@@ -45,10 +45,17 @@ def address_reply(msg):
                     address_city_list.append(province)
                     print(province_json)
                     address_json[province] = province_json
-        
+        city_counter = Counter(address_city_list)
+        with open('city_counter.json', 'w') as outfile0:
+            json.dump(city_counter, outfile0)
+        city_location_dict = dict()
+        for k, v in address_json.items():
+            city_location_dict[k] = [v['result']['location']['lng'],v['result']['location']['lat']]
+        with open('city_location.json', 'w') as outfile1:
+            json.dump(city_location_dict, outfile1)        
         webbrowser.open('/home/tiger/Workspace/itChatAttendanceCheck/addressMap/index.html')
         print(address_json)
-        itchat.send(address_list, source)
+        # itchat.send(address_list, source)
 
 itchat.auto_login(hotReload=True)
 itchat.run()
