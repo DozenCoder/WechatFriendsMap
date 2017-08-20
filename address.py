@@ -45,16 +45,20 @@ def address_reply(msg):
                     address_city_list.append(province)
                     print(province_json)
                     address_json[province] = province_json
-        city_counter = Counter(address_city_list)
+        city_counter = Counter(address_city_list) #type: Counter
+        city_counter_dict =dict(city_counter) # type: <class 'dict'>
+        city_counter_json = [] # type: list
+        for k, v in city_counter_dict.items():
+            city_counter_json.append({'value':v,'name':k})
         with open('city_counter.json', 'w') as outfile0:
-            json.dump(city_counter, outfile0)
+            json.dump(city_counter_json, outfile0, ensure_ascii=False)
         city_location_dict = dict()
         for k, v in address_json.items():
             city_location_dict[k] = [v['result']['location']['lng'],v['result']['location']['lat']]
         with open('city_location.json', 'w') as outfile1:
-            json.dump(city_location_dict, outfile1)        
+            json.dump(city_location_dict, outfile1, ensure_ascii=False)        
         webbrowser.open('/home/tiger/Workspace/itChatAttendanceCheck/addressMap/index.html')
-        print(address_json)
+        # print(address_json)
         # itchat.send(address_list, source)
 
 itchat.auto_login(hotReload=True)

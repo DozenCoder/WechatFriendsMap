@@ -1,10 +1,22 @@
 // 初始化echarts示例mapChart
+function initLoad() {
+
+}
+
+function geoCoordMap() {
+
+}
+
+function optionSeriesData() {
+
+}
+
 var mapChart = echarts.init(document.getElementById('map-wrap'))
 
 var geoCoordMap = {
-    "合肥":[117.27,31.86],
-    "武汉":[114.31,30.52],
-    "大庆":[125.03,46.58]
+    "合肥": [117.27, 31.86],
+    "武汉": [114.31, 30.52],
+    "大庆": [125.03, 46.58]
 };
 
 var convertData = function (data) {
@@ -27,7 +39,7 @@ option = {
         text: '全国主要城市空气质量',
         subtext: 'data from PM25.in',
         sublink: 'http://www.pm25.in',
-        x:'center',
+        x: 'center',
         textStyle: {
             color: '#fff'
         }
@@ -41,8 +53,8 @@ option = {
     legend: {
         orient: 'vertical',
         y: 'bottom',
-        x:'right',
-        data:['pm2.5'],
+        x: 'right',
+        data: ['pm2.5'],
         textStyle: {
             color: '#fff'
         }
@@ -75,32 +87,38 @@ option = {
             }
         }
     },
-    series: [
-        {
-            name: 'pm2.5',
-            type: 'scatter',
-            coordinateSystem: 'geo',
-            data: convertData([
-                {name: "合肥", value: 229},
-                {name: "武汉", value: 273},
-                {name: "大庆", value: 279}
-            ]),
-            symbolSize: 12,
-            label: {
-                normal: {
-                    show: false
-                },
-                emphasis: {
-                    show: false
-                }
+    series: [{
+        name: 'pm2.5',
+        type: 'scatter',
+        coordinateSystem: 'geo',
+        data: convertData([{
+                name: "合肥",
+                value: 229
             },
-            itemStyle: {
-                emphasis: {
-                    borderColor: '#fff',
-                    borderWidth: 1
-                }
+            {
+                name: "武汉",
+                value: 273
+            },
+            {
+                name: "大庆",
+                value: 279
+            }
+        ]),
+        symbolSize: 12,
+        label: {
+            normal: {
+                show: false
+            },
+            emphasis: {
+                show: false
+            }
+        },
+        itemStyle: {
+            emphasis: {
+                borderColor: '#fff',
+                borderWidth: 1
             }
         }
-    ]
+    }]
 }
 mapChart.setOption(option)
