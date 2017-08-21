@@ -1,0 +1,104 @@
+<body>
+    <div id="map-wrap" style="height: 700px;">
+        <!-- 这里是地图 -->
+    </div>
+</body>
+<script src="dep/echarts.js"></script>
+<script src="map/js/china.js"></script>
+<script>
+    // 初始化echarts
+    var mapChart = echarts.init(document.getElementById('map-wrap'))
+
+    var geoCoordMap = {{{ geoCoordMap }}}
+
+    var convertData = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
+            }
+        }
+        return res;
+    };
+
+    option = {
+        backgroundColor: '#404a59',
+        title: {
+            text: '微信好友分布图',
+            x: 'center',
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: function (params) {
+                return params.name + ' : ' + params.value[2];
+            }
+        },
+        legend: {
+            orient: 'vertical',
+            y: 'bottom',
+            x: 'right',
+            data: ['number'],
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        visualMap: {
+            min: 0,
+            max: 15,
+            calculable: true,
+            inRange: {
+                color: ['#50a3ba', '#eac736', '#d94e5d']
+            },
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        geo: {
+            map: 'china',
+            label: {
+                emphasis: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                normal: {
+                    areaColor: '#323c48',
+                    borderColor: '#111'
+                },
+                emphasis: {
+                    areaColor: '#2a333d'
+                }
+            }
+        },
+        series: [{
+            name: 'friends number',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            data: convertData({{{seriesData}}}),
+            symbolSize: 12,
+            label: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                emphasis: {
+                    borderColor: '#fff',
+                    borderWidth: 1
+                }
+            }
+        }]
+    }
+    mapChart.setOption(option)
+
+</script>

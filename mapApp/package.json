@@ -1,0 +1,17 @@
+{
+  "name": "mapapp",
+  "version": "1.0.0",
+  "description": "Wechat friend's map.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "superPershing",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "open": "^0.0.5"
+  }
+}
