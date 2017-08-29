@@ -10,6 +10,7 @@ usage(仅在`python3.5`,`node8.2.1`,`Ubuntu16.04.2 LTS`下测试过，少数语�
 >> python3 address.py
 ```
 扫描二维码，对自己(或其他好友对当前登录用户)发送`address`信息即会自动弹出浏览器，展示前端界面。  
+
 由于Github不会上传空文件夹，使用前在`mapApp`文件夹下建立`data`空文件夹用于存储获取微信的json数据。
 
 示例：
