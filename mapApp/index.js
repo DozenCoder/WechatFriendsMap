@@ -15,20 +15,12 @@ app.use(express.static(path.join(__dirname, '/data')))
 app.use(require('body-parser')())
 
 app.get('/', function (req, res) {
-  res.render('home')
-})
-
-app.post('/friendMap', function (req, res) {
   var geoCoordMap = fs.readFileSync(path.join(__dirname, '/data', 'city_location.json'))
   var seriesData = fs.readFileSync(path.join(__dirname, '/data', 'city_counter.json'))
   res.render('friendMap', {
     geoCoordMap: geoCoordMap,
     seriesData: seriesData
   })
-})
-
-app.get('/friendMap', function (req, res) {
-  res.render('friendMap')
 })
 
 app.listen(3000, function () {
