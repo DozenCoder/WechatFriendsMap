@@ -3,8 +3,9 @@
 usage(仅在`python3.5`,`node8.2.1`,`Ubuntu16.04.2 LTS`下测试过，少数语法可能不兼容python2或低版本python3，Windows会有文件路径问题（懒得改了）):
 ```
 >> git clone https://github.com/superPershing/WechatFriendsMap.git
->> pip3 install -r requirements.txt
->> cd WechatFriendsMap/mapApp
+>> cd WechatFriendsMap/
+>> pip3 install -r requirements.txt #建议使用虚拟环境
+>> cd mapApp
 >> npm install
 >> cd ..
 >> python3 address.py
