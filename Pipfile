@@ -1,0 +1,19 @@
+[[source]]
+
+name = "pypi"
+verify_ssl = true
+url = "https://mirrors.ustc.edu.cn/pypi/web/simple"
+
+
+[packages]
+
+itchat = "*"
+
+
+[requires]
+
+python_version = "3.5"
+
+
+[dev-packages]
+
