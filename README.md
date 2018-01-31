@@ -5,6 +5,7 @@ usage(仅在`python3.5`,`node8.2.1`,`Ubuntu16.04.2 LTS`下测试过，少数语�
 >> pip install --user pipenv
 >> git clone https://github.com/superPershing/WechatFriendsMap.git
 >> cd WechatFriendsMap/
+>> pipenv --python 3
 >> pipenv install
 >> pipenv shell
 >> cd mapApp
