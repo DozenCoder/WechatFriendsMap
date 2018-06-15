@@ -2,12 +2,11 @@
 `address` 通过`itchat`登录web微信获取好友地理位置信息，调用百度地图[Geocoding API](http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding),使用`Express`作为后端，`Echarts`展现前端，绘制微信好友地图(以好友微信设置地址为准，不包括海外地址及泛区域地址)。  
 usage(仅在`python3.5`,`node8.2.1`,`Ubuntu16.04.2 LTS`下测试过，少数语法可能不兼容python2或低版本python3，Windows会有文件路径问题（懒得改了）):
 ```
->> pip install --user pipenv
 >> git clone https://github.com/superPershing/WechatFriendsMap.git
 >> cd WechatFriendsMap/
->> pipenv --python 3
->> pipenv install
->> pipenv shell
+>> virtualenv venv -p python3
+>> source venv/bin/activate
+>> pip install -r requirements.txt
 >> cd mapApp
 >> npm install
 >> cd ..
